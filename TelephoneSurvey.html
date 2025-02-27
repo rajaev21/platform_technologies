@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survey Program</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.14.0/umd/react.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.14.0/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+<style>
+body {
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+.container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+button {
+  padding: 12px 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #00796b;
+  transition: 0.3s;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+}
+button:hover {
+  background: #004d40;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+h1 {
+  color: #00796b;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+p {
+  color: #004d40;
+  font-size: 18px;
+}
+h3 {
+  color: #00796b;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+function SurveyProgram() {
+  const [scores, setScores] = React.useState([]);
+  const [showModal, setShowModal] = React.useState(false);
+
+  const handleScoreClick = (score) => {
+    if (score === 5) {
+      setShowModal(true);
+    }
+    setScores([...scores, score]);
+  };
+
+  return (
+    <div className="container">
+      <h1>Service Satisfaction Survey</h1>
+      <p>How would you rate our service?</p>
+      <div>
+        {[1, 2, 3, 4, 5].map(score => (
+          <button key={score} onClick={() => handleScoreClick(score)}>{score}</button>
+        ))}
+      </div>
+      <h3>Submitted Scores:</h3>
+      <p>{scores.length ? scores.join(', ') : 'No scores yet.'}</p>
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Thank You!</h3>
+            <p>Your feedback is greatly appreciated!</p>
+            <button onClick={() => setShowModal(false)}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+ReactDOM.render(<SurveyProgram />, document.getElementById("root"));
+</script>
+</body>
+</html>
