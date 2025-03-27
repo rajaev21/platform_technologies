@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where You At App</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+        margin: 20px 0;
+        border: 1px solid #555;
+      }
+    </style>
+  </head>
+  <body class="bg-secondary">
+    <!-- <div class="video-background">
+        <video autoplay muted loop id="background-video">
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div> -->
+    <div class="container">
+      <div class="header">
+        <img
+          src="findlocation.png"
+          alt="Logo"
+          class="logo"
+          style="width: 10rem"
+        />
+        <div class="d-flex justify-content-center">
+          <h1 class="text-capitalized">Where You At?</h1>
+        </div>
+      </div>
+      <div class="input-group d-flex justify-content-center gap-2">
+        <input type="text" id="location-input" placeholder="Enter a location" class="form-control"/>
+        <button id="add-location" class="btn btn-primary">Add Location</button>
+      </div>
+      <div id="map"></div>
+      <div id="locations-checklist">
+        <h2>Locations:</h2>
+        <ul id="checklist"></ul>
+      </div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
